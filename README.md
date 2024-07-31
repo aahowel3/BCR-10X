@@ -2,9 +2,8 @@
 
 Respiratory syncytial virus (RSV) is a significant contributor to cases of acute lower respiratory infection (ALRI) and primarily affects young children and the elderly (Nam and Ison, [2019](https://pubmed.ncbi.nlm.nih.gov/31506273/); Branche and Falsey, [2015](https://pubmed.ncbi.nlm.nih.gov/25851217/); Shi et al., [2017](https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(22)00478-0/fulltext); Savic et al., [2023](https://pubmed.ncbi.nlm.nih.gov/36369772/)). Worldwide, an estimated 3.2 million hospitalizations and 118,2000 deaths were attributed to RSV in children under 5 years of age in 2015 (Shi et al., [2017](https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(22)00478-0/fulltext)), and in 2019 there were approximately 470,000 RSV-related hospitalizations and 33,000 in-hospital deaths globally due to RSV in adults older than 60 (Savic et al., [2023](https://pubmed.ncbi.nlm.nih.gov/36369772/)). Therefore, the development of an RSV vaccine is of critical importance to global health. Here, we present a 10X Genomics based protocol for isolating and single-cell sequencing monoclonal antibodies (mAbs) after immunization with an uncleaved prefusion-closed (UFC) trimer of the RSV F protein (Lee et al., [2024](https://pubmed.ncbi.nlm.nih.gov/38496645/)) in order the evaluate the vaccine’s ability to induce robust antibody responses with high neutralizing titers. 
 
-Antigen-specific mouse B cells were isolated via 
-Download taxdb.btd, taxdb.bti, taxdb.tar.gz from https://ftp.ncbi.nlm.nih.gov/blast/db/taxdb.tar.gz <br />
-Prepare rank-biased overlap blast results via `phirbo_preprocessing.txt` <br />
-Run phribo by providing two input directories (i.e., for phages [`phage_virusblast/`] and bacteria [`phage_hostblast/`]) containing ranked lists from blast output, and an output file name (`phage_phirbo/predictions.csv`) <br />
+## Sample Preperation and Sequencing 
 
-`python phirbo/phirbo.py phage_virusblast/ phage_hostsblast/ phage_phirbo/predictions.csv`
+Mouse splenocyte samples (2X 2mL cryopreserved cells approx 30 million cells) were thawed into PBS + 1% BSA + 2mM EDTA buffer and stained with Fixable Aqua dead cell stain (Invitrogen), 2.4G2 Fc receptor block, biotinylated trimer probe, and premium-grade allophycocyanin (APC)-labeled streptavidin (Thermo Fisher) for sorting on a MoFloAstrios EQ (Beckman Coulter) using double positive gating. Approx. 6000 antigen-specific mouse B cells were captured from sorting and loaded onto a 10X Chromium Controller for single-cell GEM bead emulsification. 
+
+## Data Processing with Cellranger
