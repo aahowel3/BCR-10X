@@ -7,3 +7,16 @@ Respiratory syncytial virus (RSV) is a significant contributor to cases of acute
 Mouse splenocyte samples (2X 2mL cryopreserved cells approx 30 million cells) were thawed into PBS + 1% BSA + 2mM EDTA buffer and stained with Fixable Aqua dead cell stain (Invitrogen), 2.4G2 Fc receptor block, biotinylated trimer probe, and premium-grade allophycocyanin (APC)-labeled streptavidin (Thermo Fisher) for sorting on a MoFloAstrios EQ (Beckman Coulter) using double positive gating. Approx. 6000 antigen-specific mouse B cells were captured from sorting and loaded onto a 10X Chromium Controller for single-cell GEM bead emulsification. 
 
 ## Data Processing with Cellranger
+
+
+## Analysis and Plotting
+
+Using `samtools` MD tags were added to the file `concat_ref.bam` which contained the alignments of the full assembled light and heavy V(D)J contigs relative to the concatenated reference V(D)J contigs. The MD tags contain details not only on the number of matches/mistmatches/indels relative to the reference but also the exact substitutions. <br />
+
+`concat_ref.bam` is one of the standard outputs of the `cellranger vdj` pipeline <br />
+
+`samtools calmd --threads 15 -rb concat_ref.bam concat_ref.fasta > concat_ref_MDtag.bam` <br />
+
+In order to determine the exact mutations and calculate the germline divergence of the V gene per complete cell barcode, the corresponding region of the concatenated reference genome (combined VDJ segements) that an assembled contig aligned to was extracted using the tool `sam2pairwise`. 
+
+`samtools view concat_ref_MDtag.bam | sam2pairwise > concat_ref_pairwise_MDtag.out`
