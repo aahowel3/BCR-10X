@@ -8,6 +8,9 @@ Mouse splenocyte samples (2X 2mL cryopreserved cells approx 30 million cells) we
 
 ## Data Processing with Cellranger
 
+`cellranger vdj` pipeline assembles full V(D)J contigs from fastq reads and determines viable single-cells from GEMs using the supporting number of UMIs and barcodes. <br />
+
+Output files are contained in the folder `MouseB_cell`
 
 ## Analysis and Plotting
 
