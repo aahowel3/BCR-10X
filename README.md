@@ -20,6 +20,8 @@ Using `samtools` MD tags were added to the file `concat_ref.bam` which contained
 
 `samtools calmd --threads 15 -rb concat_ref.bam concat_ref.fasta > concat_ref_MDtag.bam` <br />
 
-In order to determine the exact mutations and calculate the germline divergence of the V gene per complete cell barcode, the corresponding region of the concatenated reference genome (combined VDJ segements) that an assembled contig aligned to was extracted using the tool `sam2pairwise`. 
+In order to determine the exact mutations and calculate the germline divergence of the V gene per complete cell barcode, the corresponding region of the concatenated reference genome (combined VDJ segements) that an assembled contig aligned to was extracted using the tool `sam2pairwise`. <br />
 
-`samtools view concat_ref_MDtag.bam | sam2pairwise > concat_ref_pairwise_MDtag.out`
+`samtools view concat_ref_MDtag.bam | sam2pairwise > concat_ref_pairwise_MDtag.out` <br />
+
+Use script `cellranger_mouseRSV_spleen_dataanalysis_plots.R` to select candidate antibodies for gene synthesis and functional analysis based on their clonotype abundance, CDR3 length, and somatic hypermutation of the V gene segments.
