@@ -8,15 +8,11 @@ Mouse splenocyte samples (2X 2mL cryopreserved cells approx 30 million cells) we
 
 ## Data Processing with Cellranger
 
-`cellranger vdj` pipeline assembles full V(D)J contigs from fastq reads and determines viable single-cells from GEMs using the supporting number of UMIs and barcodes. <br />
-
-Output files are contained in the folder `MouseB_cell`
+`cellranger vdj` pipeline assembles full V(D)J contigs from fastq reads and determines viable single-cells from GEMs using the supporting number of UMIs and barcodes. Output files are contained in the folder `MouseB_cell`.
 
 ## Analysis and Plotting
 
-Using `samtools` MD tags were added to the file `concat_ref.bam` which contained the alignments of the full assembled light and heavy V(D)J contigs relative to the concatenated reference V(D)J contigs. The MD tags contain details not only on the number of matches/mistmatches/indels relative to the reference but also the exact substitutions. <br />
-
-`concat_ref.bam` is one of the standard outputs of the `cellranger vdj` pipeline <br />
+Using `samtools` MD tags were added to the file `concat_ref.bam` which contained the alignments of the full assembled light and heavy V(D)J contigs relative to the concatenated reference V(D)J contigs. The MD tags contain details not only on the number of matches/mistmatches/indels relative to the reference but also the exact substitutions. `concat_ref.bam` is one of the standard outputs of the `cellranger vdj` pipeline. <br />
 
 `samtools calmd --threads 15 -rb concat_ref.bam concat_ref.fasta > concat_ref_MDtag.bam` <br />
 
